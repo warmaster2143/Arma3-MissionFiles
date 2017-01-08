@@ -1,0 +1,31 @@
+respawn = "BASE";  // this means base wich is a marker named respawn_west
+respawndelay = 5;  // this is time from death to new life
+
+
+//------------------------- Garbage collector
+							
+wreckLimit = 3;											// Limit before removal is triggered
+wreckRemovalMinTime = 120;								// Min time before removal
+wreckRemovalMaxTime = 360;								// Max time before removal
+corpseLimit = 5;										// Limit before removal is triggered		
+corpseRemovalMinTime = 60;								// Min time before removal
+corpseRemovalMaxTime = 120;								// Max time before removal
+//////////Scripts//////////////
+#include "scripts\taw_vd\dialog.hpp" 					// TAW View Distance
+#include "JTS_SQUAD\SQ-2.hpp"
+ 
+
+class CfgFunctions
+     {
+	    #include "functions\cfgfunctions.hpp"
+		#include "scripts\taw_vd\CfgFunctions.hpp"		// View distance
+		#include "FETT_ZeusShare\CfgFunctions.hpp"
+	 };
+ class FETT {									        // Curator synch http://forums.bistudio.com/showthread.php?176691-Making-placed-units-be-editable-for-every-Zeus
+	        class curator {
+	            class eventHandlers {postInit = 1;};
+	            class objPlaced {};
+	            class grpPlaced {};
+	        };
+	    };
+};
