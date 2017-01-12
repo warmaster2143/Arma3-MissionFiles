@@ -4,7 +4,4 @@ player enableFatigue False;
 player addEventHandler ["Respawn", {player enableFatigue false}];
 
 
-{_x addCuratorEditableObjects [[player],FALSE];} count allCurators;
-
-
 //player addAction ["", ""];

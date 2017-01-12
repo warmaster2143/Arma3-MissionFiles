@@ -5,5 +5,6 @@ class QS
 	{
 		file = "functions";	
 		class vMonitor {};
+        class respawnPilot {};
 	};
 };

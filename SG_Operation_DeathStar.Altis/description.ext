@@ -1,31 +1,41 @@
-respawn = "BASE";  // this means base wich is a marker named respawn_west
-respawndelay = 5;  // this is time from death to new life
+///////////////////////////////////////////////////////////////////////////////
+// Server Settings - Modify at will
+///////////////////////////////////////////////////////////////////////////////
+
+class Header
+{
+    gameType = COOP;
+    minPlayers = 0;
+    maxPlayers = 60;
+};
+
+Respawn = 3;											
+RespawnDelay = 4;										// Delay prior to respawn, ensure longer than BTC revive delay.
+RespawnDialog = 0;										// default = 1. show respawn timer and scoreboard when killed.
+
+///////////////////////////////////////////////////////////////////////////////
 
 
-//------------------------- Garbage collector
-							
-wreckLimit = 3;											// Limit before removal is triggered
-wreckRemovalMinTime = 120;								// Min time before removal
-wreckRemovalMaxTime = 360;								// Max time before removal
-corpseLimit = 5;										// Limit before removal is triggered		
-corpseRemovalMinTime = 60;								// Min time before removal
-corpseRemovalMaxTime = 120;								// Max time before removal
-//////////Scripts//////////////
+/////////////////////////////Includes / Functions//////////////////////////////
+
 #include "scripts\taw_vd\dialog.hpp" 					// TAW View Distance
 #include "JTS_SQUAD\SQ-2.hpp"
- 
+#include "scripts\=BTC=_revive\=BTC=_respawn.h"			// BTC medic revive system  
 
-class CfgFunctions
-     {
-	    #include "functions\cfgfunctions.hpp"
-		#include "scripts\taw_vd\CfgFunctions.hpp"		// View distance
-		#include "FETT_ZeusShare\CfgFunctions.hpp"
-	 };
- class FETT {									        // Curator synch http://forums.bistudio.com/showthread.php?176691-Making-placed-units-be-editable-for-every-Zeus
-	        class curator {
-	            class eventHandlers {postInit = 1;};
-	            class objPlaced {};
-	            class grpPlaced {};
-	        };
-	    };
+class CfgFunctions {
+  
+ #include "functions\cfgfunctions.hpp"
+ #include "scripts\taw_vd\CfgFunctions.hpp"		// View distance
+ #include "FETT_ZeusShare\CfgFunctions.hpp"
+
+    class FETT {
+	class curator {
+		class eventHandlers {postInit = 1;};
+		class objPlaced {};
+		class grpPlaced {};
+	};
+};   
+
 };
+
+///////////////////////////////////////////////////////////////////////////////
